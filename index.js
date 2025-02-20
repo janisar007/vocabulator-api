@@ -11,7 +11,9 @@ const PORT = 5000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5174', // Replace this with your frontend URL
+  }));
 app.use(fileUpload()); // Enable file upload support
 
 // Route to handle sending emails with optional PDF attachment
