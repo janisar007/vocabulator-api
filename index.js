@@ -18,7 +18,7 @@ app.use(fileUpload()); // Enable file upload support
 
 // Route to handle sending emails with optional PDF attachment
 app.post('/send-emails', async (req, res) => {
-  const { emailList, subject, message } = req.body;
+  const { emailList, subject, message, yourEmail, yourPass } = req.body;
   const pdfFile = req.files?.pdfFile;
 
   if (!subject || !message) {
