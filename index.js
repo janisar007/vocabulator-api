@@ -12,7 +12,7 @@ const PORT = 5000;
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'http://localhost:5174', // Replace this with your frontend URL
+    origin: 'https://email-client-new.vercel.app', // Replace this with your frontend URL
   }));
 app.use(fileUpload()); // Enable file upload support
 
