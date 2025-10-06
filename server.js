@@ -24,6 +24,33 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/vocab-app
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  if (mongoose.connection.readyState === 1) {
+    res.status(200).json({ 
+      status: 'success', 
+      message: 'Server is healthy',
+      database: 'connected'
+    });
+  } else {
+    res.status(500).json({ 
+      status: 'error', 
+      message: 'Database not connected',
+      database: 'disconnected'
+    });
+  }
+});
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'SSC CGL Vocab App API',
+    status: 'running',
+    timestamp: new Date().toISOString()
+  });
+});
+
 module.exports = app;
 // const PORT = process.env.PORT || 5000;
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
