@@ -1,23 +1,23 @@
 {
-  "name": "email-api",
+  "name": "vocabulator-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "SSC CGL Vocabulary Application Backend",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " node index.js || export OPENSSL_CONF=/dev/null"
+    "start": " node server.js || export OPENSSL_CONF=/dev/null",
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "body-parser": "^1.20.3",
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.5.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "express-fileupload": "^1.5.1",
-    "fs": "^0.0.1-security",
-    "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.10.0",
-    "nodemon": "^3.1.9"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
