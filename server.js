@@ -8,7 +8,20 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: ["https://githubcenter.vercel.app", "http://localhost:5173"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true, // Important for cookies/sessions
+  allowedHeaders: [
+    "Content-Type", 
+    "Authorization", 
+    "Origin", 
+    "X-Requested-With", 
+    "Accept"
+  ],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
